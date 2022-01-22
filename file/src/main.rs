@@ -6,6 +6,15 @@ struct File {
     data: Vec<u8>,
 }
 
+impl File {
+    fn new(name: &str) -> File {
+        File {
+            name: String::from(name),
+            data: Vec::new(),
+        }
+    }
+}
+
 fn open(f: &mut File) -> bool {
     true
 }
@@ -41,4 +50,11 @@ fn main() {
     println!("{:?}", f1);
     println!("{} is {} byte long", &f1.name, f1_length);
     println!("{}", text);
+
+    let f2 = File::new("f1.txt");
+    let f2_name = &f2.name;
+    let f2_length = &f2.data.len();
+
+    println!("{:?}", f2);
+    println!("{} is {} byte long", f2_name, f2_length);
 }
